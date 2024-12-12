@@ -1,7 +1,6 @@
 import * as CDK from 'aws-cdk-lib';
 import { Duration, RemovalPolicy } from 'aws-cdk-lib';
-import { AttributeType, Table } from 'aws-cdk-lib/aws-dynamodb';
-import { InstanceClass, InstanceSize, InstanceType, Peer, Port, SecurityGroup, Subnet, SubnetType, Vpc } from 'aws-cdk-lib/aws-ec2';
+import { InstanceClass, InstanceSize, InstanceType, Peer, Port, SecurityGroup, SubnetType, Vpc } from 'aws-cdk-lib/aws-ec2';
 import { Repository } from 'aws-cdk-lib/aws-ecr';
 import { Cluster, Compatibility, ContainerImage, FargateService, ListenerConfig, LogDriver, Protocol, Secret, TaskDefinition } from 'aws-cdk-lib/aws-ecs';
 import { ApplicationLoadBalancer, ApplicationProtocol } from 'aws-cdk-lib/aws-elasticloadbalancingv2';
@@ -99,10 +98,6 @@ export class Csci46508501248Stack extends CDK.Stack {
         subnetType: SubnetType.PRIVATE_WITH_EGRESS, 
       },
       serviceName: 'fgp',
-      circuitBreaker: {
-        enable: true,
-        rollback: true,
-      },
       securityGroups: [
         securityGroup,
       ],
