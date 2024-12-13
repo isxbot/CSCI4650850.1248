@@ -11,6 +11,7 @@ export class Csci46508501248Stack extends CDK.Stack {
   constructor(scope: Construct, id: string, props?: CDK.StackProps) {
     super(scope, id, props);
 
+    // VPC
     const vpc = new Vpc(this, 'vpc', {
       subnetConfiguration: [
         {
